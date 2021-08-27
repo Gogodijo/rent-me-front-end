@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom'
 const Confirm = () => {
   const [confirmed, setConfirmed] = useState({status:'loading'})
   const {id} = useParams()
-  console.log(id)
   useEffect( () => {
     async function fetchData(){
       const res = await confirm(id)
@@ -17,7 +16,7 @@ const Confirm = () => {
       setConfirmed({status:'success'})
     }
     fetchData()
-  }, []);
+  }, [id]);
   if(confirmed.status === 'loading'){
     return (
       <>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import register from '../../services/register'
-import { FormControl, Input, InputLabel,Button } from '@material-ui/core'
+import { FormControl,Button, TextField } from '@material-ui/core'
 import Alert from '@material-ui/lab/Alert';
 
 const RegisterForm = ({ setRegisterCompleted }) => {
@@ -11,6 +11,7 @@ const RegisterForm = ({ setRegisterCompleted }) => {
     password: '',
     name: ''
   })
+
   useEffect(() => {
   }, [registerForm]);
 
@@ -24,9 +25,9 @@ const RegisterForm = ({ setRegisterCompleted }) => {
   const handleFormChange = event => {
     setRegisterForm({ ...registerForm, [event.target.name]: event.target.value })
   }
+
   const handleSubmit = async event => {
     event.preventDefault()
-
     const res = await register(registerForm)
     console.log(res)
     if (res.status) {
@@ -36,7 +37,6 @@ const RegisterForm = ({ setRegisterCompleted }) => {
     else {
       setErrorandClear(res.msg,3000)
     }
-
   }
 
   return (
@@ -45,25 +45,21 @@ const RegisterForm = ({ setRegisterCompleted }) => {
       <form onSubmit={handleSubmit}>
         <div>
           <FormControl required="true" margin="normal">
-            <InputLabel htmlFor="name">Nimi</InputLabel>
-            <Input type="text" name="name" value={registerForm.name} onChange={(e) => handleFormChange(e)}></Input>
+            <TextField label="Nimi" required="true" type="text" name="name" value={registerForm.name} onChange={(e) => handleFormChange(e)} />
           </FormControl>
         </div>
         <div>
           <FormControl required="true" margin="normal">
-            <InputLabel htmlFor="email">Sähköpostiosoite</InputLabel>
-            <Input type="email" name="email" value={registerForm.email} onChange={(e) => handleFormChange(e)}></Input>
+            <TextField required="true" label="Sähköpostiosoite" type="email" name="email" value={registerForm.email} onChange={(e) => handleFormChange(e)} />
           </FormControl>
         </div>
         <div>
           <FormControl required="true" margin="normal">
-            <InputLabel htmlFor="password">Salasana</InputLabel>
-            <Input type="password" name="password" value={registerForm.password} onChange={(e) => handleFormChange(e)}></Input>
+            <TextField required="true" label="Salasana" type="password" name="password" value={registerForm.password} onChange={(e) => handleFormChange(e)} />
           </FormControl>
         </div>
         <Button variant="contained" type="submit" color="primary">Rekisteröidy</Button>
       </form>
-
     </>
   );
 }
