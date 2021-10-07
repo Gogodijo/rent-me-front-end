@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { FormControl, Button, TextField } from '@material-ui/core'
+import { makeStyles, } from '@material-ui/core'
 
+const useStyles = makeStyles((theme) => ({
+  formContainer: {
+    display: 'flex',
+    marginTop: theme.spacing(3)
+  },
+  button: {
+    width: '100%',
+    marginTop: theme.spacing(1)
+  },
+}))
 
 const PasswordResetForm = ({ id }) => {
   const [passwordForm, setPasswordForm] = useState({ password: '', passwordConfirm: '' })
   const [buttonDisabled, setButtonDisabled] = useState([true, ""])
-
+  const classes = useStyles()
   useEffect(() => {
     if (passwordForm.password !== '' || passwordForm.passwordConfirm !== '') {
       if (passwordForm.password.length < 8) return setButtonDisabled([true, "Salasanan on oltava yli 8 merkkiä pitkä"])
@@ -24,33 +35,29 @@ const PasswordResetForm = ({ id }) => {
 
   }
   return (
-    <>
+    <div className={classes.formContainer}>
 
       <form onSubmit={handleSubmit}>
         <div>
-          <FormControl required="true" margin="normal">
-            <TextField variant="outlined" required="true"
-              label="Uusi Salasana" error={buttonDisabled[1]}
-              helperText={buttonDisabled[1]} type="password"
-              name="password" value={passwordForm.password}
-              onChange={e => handleFormChange(e)} />
-          </FormControl>
+          <TextField margin="dense" variant="outlined" required={true}
+            label="Uusi Salasana" error={buttonDisabled[1]}
+            helperText={buttonDisabled[1]} type="password"
+            name="password" value={passwordForm.password}
+            onChange={e => handleFormChange(e)} />
         </div>
         <div>
-          <FormControl required="true" margin="normal">
-            <TextField variant="outlined" required="true"
-              label="Toista salasana" error={buttonDisabled[1]}
-              type="password" name="passwordConfirm"
-              value={passwordForm.passwordConfirm}
-              onChange={e => handleFormChange(e)} />
-          </FormControl>
+          <TextField margin="dense" variant="outlined" required={true}
+            label="Toista salasana" error={buttonDisabled[1]}
+            type="password" name="passwordConfirm"
+            value={passwordForm.passwordConfirm}
+            onChange={e => handleFormChange(e)} />
         </div>
         <div>
-          <Button variant="contained" type="submit"
+          <Button variant="contained" type="submit" className={classes.button}
             color="primary" disabled={buttonDisabled[0]}>Tallenna</Button>
         </div>
       </form>
-    </>
+    </div>
   )
 }
 

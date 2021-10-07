@@ -1,34 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, makeStyles, Container, fade } from '@material-ui/core';
+import React from 'react';
+import {
+  AppBar, Toolbar,  makeStyles, Container
+} from '@material-ui/core';
+import SearchBar from './SearchBar';
+import ProfileSelector from './ProfileSelector';
+import Logo from './Logo';
 
-  const useStyles = makeStyles(theme => ({
-    search: {
-      position: 'relative',
-      borderRadius: theme.shape.borderRadius,
-      backgroundColor: fade(theme.palette.common.white, 0.15),
-      '&:hover': {
-        backgroundColor: fade(theme.palette.common.white, 0.25),
-      },
-      marginRight: theme.spacing(2),
-      marginLeft: 0,
-      width: '100%',
-      [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(3),
-        width: 'auto',
-      },
-    },
-  }))
+const useStyles = makeStyles(theme => ({
+  inputRoot: {
+    color: 'inherit',
+  },
+  appBar: {
+    boxShadow: 'none',
+  },
+  grow: {
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+}))
 
 const Header = () => {
   const classes = useStyles()
 
-
   return (
     <div style={{ background: 'white' }} >
-      <AppBar position="static" variant="elevation" style={{ boxShadow: 'none' }} color="inherit">
+      <AppBar position="static" variant="elevation" className={classes.appBar} color="inherit">
         <Container maxWidth="md">
-          <Toolbar variant="regular" disableGutters="true" >
-            <Typography variant="h6" noWrap>RentMe</Typography>
+          <Toolbar variant="regular" disableGutters={true} className={classes.grow} >
+            <Logo />
+            <SearchBar />
+            <ProfileSelector />
           </Toolbar>
         </Container>
       </AppBar>

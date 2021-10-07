@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const register = async ({email, password, name}) => {
+const register = async ({email, password, firstName, lastName}) => {
   const body = {
-    name, email, password
+    firstName, lastName, email, password
   }
   try {
     const res = await axios.post('/api/user/register', body)

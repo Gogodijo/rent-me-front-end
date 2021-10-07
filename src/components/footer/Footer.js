@@ -1,12 +1,24 @@
-import { Container, Grid } from '@material-ui/core';
+import { Container} from '@material-ui/core';
 import React from 'react';
+import { makeStyles, Typography, Box } from '@material-ui/core';
 
+const useStyles = makeStyles(theme => ({
+  container: {
+    background:'darkgray',
+    minHeight: '15vh',
+    paddingTop:'30px',
+    paddingBottom:'20px'
+  }
+}))
 
 const Footer = () => {
 
+  const classes = useStyles()
+
   return (
-    <div style={{background:'lightgray', minHeight:'20vh', paddingTop:'20px'} }>
-    <Container maxWidth="md"  >
+    <div className={classes.container}>
+    <Container maxWidth="md" >
+      <Box />
     Footer testi setti
     </Container>
     </div>
