@@ -101,10 +101,10 @@ const LoginForm = ({ setPasswordForgotten, closePopUp }) => {
       <div className={classes.formContainer}>
         <form onSubmit={handleSubmit}>
           <div>
-            <TextField tabindex="1" autoFocus margin='dense' variant="outlined" type="email" label="Sähköposti" required={true} name="email" value={loginForm.email} onChange={e => handleFormChange(e)}></TextField>
+            <TextField tabIndex="1" autoFocus margin='dense' variant="outlined" type="email" label="Sähköposti" required={true} name="email" value={loginForm.email} onChange={e => handleFormChange(e)}></TextField>
           </div>
           <div>
-            <TextField tabindex="2" margin='dense' variant="outlined" label="Salasana" required={true} type="password" name="password" value={loginForm.value} onChange={e => handleFormChange(e)}></TextField>
+            <TextField tabIndex="2" margin='dense' variant="outlined" label="Salasana" required={true} type="password" name="password" value={loginForm.value} onChange={e => handleFormChange(e)}></TextField>
           </div>
           <div className={classes.submitButton}>
             <Button className={classes.submitButton2} disabled={!!error || !!user.loggingIn || !!user.loggedIn} variant="contained" type="submit" color="primary">Kirjaudu</Button>
