@@ -54,8 +54,8 @@ const RegisterForm = ({ setRegisterCompleted }) => {
     }, time)
   }
 
-  const handleFormChange = event => {
-    setRegisterForm({ ...registerForm, [event.target.name]: event.target.value })
+  const handleFormChange = e => {
+    setRegisterForm({ ...registerForm, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async event => {

@@ -1,13 +1,22 @@
 import { Container} from '@material-ui/core';
 import React from 'react';
-import { makeStyles, Typography, Box } from '@material-ui/core';
+import { makeStyles} from '@material-ui/core';
+import LeftColumn from './LeftColumn';
+import CenterColumn from './CenterColumn';
+import RightColumn from './RightColumn';
 
 const useStyles = makeStyles(theme => ({
   container: {
-    background:'darkgray',
+    background:'#dedede',
     minHeight: '15vh',
     paddingTop:'30px',
-    paddingBottom:'20px'
+    paddingBottom:'20px',
+
+  },
+  flex: {
+    display: 'flex',
+    flexDirection:'row',
+    justifyContent: 'space-between'
   }
 }))
 
@@ -17,9 +26,10 @@ const Footer = () => {
 
   return (
     <div className={classes.container}>
-    <Container maxWidth="md" >
-      <Box />
-    Footer testi setti
+    <Container maxWidth="md" className={classes.flex}  >
+      <LeftColumn />
+      <CenterColumn />
+      <RightColumn />
     </Container>
     </div>
   )

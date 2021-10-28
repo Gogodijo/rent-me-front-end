@@ -7,7 +7,6 @@ import {
 } from "react-router-dom"
 import Home from './Pages/Home/Home';
 import Register from './components/register/Register';
-
 import PasswordResetPage from './Pages/PasswordReset/PasswordResetPage';
 import { Container, Divider, makeStyles, } from '@material-ui/core';
 import Header from './components/header/Header';
@@ -15,6 +14,9 @@ import Footer from './components/footer/Footer';
 import Profile from './Pages/Profile/Profile';
 import LoginPage from './Pages/loginPage/LoginPage';
 import {  useSelector } from 'react-redux'
+import Tos from './Pages/Tos/Tos';
+import Acc from './Pages/Acc/Acc';
+import ScrollToTop from './ScrollToTop';
 
 const useStyles = makeStyles({
   container: {
@@ -30,6 +32,7 @@ function App() {
   return (
     <>  
     <Router>
+      <ScrollToTop />
       <Header />
       <Divider />
       <Container className={classes.container} maxWidth="md">
@@ -53,12 +56,19 @@ function App() {
             <Route path="/profile">
             {user?.user?.user ? <Profile /> : <LoginPage /> }  
             </Route>
+            <Route path="/tos">
+              <Tos />
+            </Route>
+            <Route path="/accessibility">
+              <Acc />
+            </Route>
             <Redirect from='*' to='/' />
           </Switch>
       
       </Container>
       <Footer />
-     </Router></> 
+     </Router>
+     </> 
   );
 }
 

@@ -1,8 +1,8 @@
-import { MenuItem } from '@material-ui/core';
+import { Divider, MenuItem } from '@material-ui/core';
 import React from 'react';
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { userActions } from '../../redux/actions/userActions'
-import {useHistory} from 'react-router'
+import { useHistory } from 'react-router'
 
 function LoggedInMenu({ closePopUp }) {
   const dispatch = useDispatch()
@@ -16,8 +16,11 @@ function LoggedInMenu({ closePopUp }) {
   }
   return (
     <>
+
       <MenuItem onClick={handleprofileClick}>Profiili</MenuItem>
+      <Divider />
       <MenuItem onClick={handleLogOut}>Kirjaudu ulos</MenuItem>
+      <Divider />
       <MenuItem onClick={closePopUp}>Sulje valikko</MenuItem>
 
     </>

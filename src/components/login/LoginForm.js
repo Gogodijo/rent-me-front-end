@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
   rotator : {
     height:'100%'
   },
+  container: {
+    padding: theme.spacing(2),
+  },
 }))
 
 const LoginForm = ({ setPasswordForgotten, closePopUp }) => {
@@ -92,16 +95,16 @@ const LoginForm = ({ setPasswordForgotten, closePopUp }) => {
     return
   }
   return (
-    <>
+    <div className={classes.container}>
 
       <Typography className={classes.header} variant="h6">Kirjaudu sisään</Typography>
       <div className={classes.formContainer}>
         <form onSubmit={handleSubmit}>
           <div>
-            <TextField autoFocus margin='dense' variant="outlined" type="email" label="Sähköposti" required={true} name="email" value={loginForm.email} onChange={e => handleFormChange(e)}></TextField>
+            <TextField tabindex="1" autoFocus margin='dense' variant="outlined" type="email" label="Sähköposti" required={true} name="email" value={loginForm.email} onChange={e => handleFormChange(e)}></TextField>
           </div>
           <div>
-            <TextField margin='dense' variant="outlined" label="Salasana" required={true} type="password" name="password" value={loginForm.value} onChange={e => handleFormChange(e)}></TextField>
+            <TextField tabindex="2" margin='dense' variant="outlined" label="Salasana" required={true} type="password" name="password" value={loginForm.value} onChange={e => handleFormChange(e)}></TextField>
           </div>
           <div className={classes.submitButton}>
             <Button className={classes.submitButton2} disabled={!!error || !!user.loggingIn || !!user.loggedIn} variant="contained" type="submit" color="primary">Kirjaudu</Button>
@@ -110,7 +113,7 @@ const LoginForm = ({ setPasswordForgotten, closePopUp }) => {
         </form>
         {error ? <Alert severity="error">{error}</Alert> : null}
       <GoogleLogin
-      clientId={"292759090031-27oo0nvob3qa7u9lrgd0c8j7qrh702nj.apps.googleusercontent.com"} 
+      clientId={""} 
         buttonText="Kirjaudu Googlen avulla"
         onSuccess={handleLogin}
         onFailure={handleLoginFailure}
@@ -124,7 +127,7 @@ const LoginForm = ({ setPasswordForgotten, closePopUp }) => {
         <Typography className={classes.registerText} variant="body1" onClick={handleregisterTextClick}>Rekisteröidy käyttäjäksi</Typography>
       </div>
 
-    </>
+    </div>
   );
 }
 

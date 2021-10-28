@@ -23,7 +23,6 @@ const useStyles = makeStyles(theme => ({
     },
   },
   menuContainer: {
-    padding: theme.spacing(1, 2, 1, 2),
     maxWidth: '30ch',
   },
   flip: {
@@ -99,7 +98,7 @@ const ProfileSelector = (props) => {
         }}
         getContentAnchorEl={null}
       >
-        <div className={classes.arrow}></div>
+        <div className={classes.arrow} tabindex="-1"></div>
         <div className={classes.menuContainer} >
 
           {(user?.loggedIn && user.user) ? <LoggedInMenu closePopUp={handleClose} /> : <Login autofocus closePopUp={handleClose} />}

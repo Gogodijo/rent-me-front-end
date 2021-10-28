@@ -1,9 +1,10 @@
 import { Box, Typography } from '@material-ui/core';
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux'
 
 const Home = () => {
   const user = useSelector(state => state.authentication.user)
+
   return (
     <>
       <Box py={2}>
