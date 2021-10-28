@@ -31,7 +31,7 @@ const CenterColumn = () => {
   return (
     <div>
       <Typography variant="h5" className={classes.header}>Linkit</Typography>
-      {links.map((link) => <ColumnLink key={links.display} linkDisplay={link.display} linkDestination={link.destination} />)}
+      {links.map((link, i) => <ColumnLink key={i} linkDisplay={link.display} linkDestination={link.destination} />)}
     </div>
   )
 }

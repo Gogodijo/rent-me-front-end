@@ -98,7 +98,7 @@ const ProfileSelector = (props) => {
         }}
         getContentAnchorEl={null}
       >
-        <div className={classes.arrow} tabindex="-1"></div>
+        <div className={classes.arrow} tabIndex="-1"></div>
         <div className={classes.menuContainer} >
 
           {(user?.loggedIn && user.user) ? <LoggedInMenu closePopUp={handleClose} /> : <Login autofocus closePopUp={handleClose} />}
