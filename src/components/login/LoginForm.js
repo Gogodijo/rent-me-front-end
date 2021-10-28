@@ -113,7 +113,7 @@ const LoginForm = ({ setPasswordForgotten, closePopUp }) => {
         </form>
         {error ? <Alert severity="error">{error}</Alert> : null}
       <GoogleLogin
-      clientId={""} 
+      clientId={"292759090031-27oo0nvob3qa7u9lrgd0c8j7qrh702nj.apps.googleusercontent.com"} 
         buttonText="Kirjaudu Googlen avulla"
         onSuccess={handleLogin}
         onFailure={handleLoginFailure}

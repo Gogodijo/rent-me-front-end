@@ -1,8 +1,10 @@
 import React from "react";
-import { Typography, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-
+  div:{
+    display:'flex'
+  }
 }))
 
 const Acc = () => {
@@ -10,7 +12,7 @@ const Acc = () => {
   const classes = useStyles()
 
   return (
-    <div>
+    <div className={classes.div}>
 
     </div>
   )
